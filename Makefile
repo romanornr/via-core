@@ -40,7 +40,7 @@ help:
 
 # Run the basic setup workflow in sequence
 .PHONY: via
-via: env config init transactions celestia bootstrap server-genesis server
+via: env config init transactions bootstrap server-genesis server
 
 # Run the full setup workflow in sequence
 .PHONY: all

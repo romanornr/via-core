@@ -1,6 +1,8 @@
 import { HardhatUserConfig } from 'hardhat/config';
 import '@matterlabs/hardhat-zksync';
+import 'hardhat-typechain';
 import './scripts/tasks';
+import 'hardhat-tracer';
 
 const config: HardhatUserConfig = {
     defaultNetwork: 'via',
