@@ -17,6 +17,7 @@ zksync_da_client.workspace = true
 zksync_config.workspace = true
 zksync_types.workspace = true
 zksync_utils.workspace = true
+via_da_clients.workspace = true
 
 bitcoin = { version = "0.32.2", features = ["serde"] }
 byteorder = "1.4"

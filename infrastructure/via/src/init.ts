@@ -32,8 +32,8 @@ const checkEnv = async (): Promise<void> => {
 
 // Initializes and updates the git submodule
 const submoduleUpdate = async (): Promise<void> => {
-    await utils.exec('git submodule init');
-    await utils.exec('git submodule update');
+    await utils.exec('git submodule update --init --recursive');
+    await utils.exec('git submodule update --remote contracts');
 };
 
 // Sets up docker environment and compiles contracts
@@ -48,8 +48,8 @@ const initSetup = async ({
     runObservability
 }: InitSetupOptions): Promise<void> => {
     await announced(`Initializing in 'Roll-up mode'}`);
+    await announced('Checkout submodules', submoduleUpdate());
     if (!skipSubmodulesCheckout) {
-        await announced('Checkout submodules', submoduleUpdate());
     }
     if (!process.env.CI && !skipEnvSetup) {
         await announced('Pulling images', docker.pull());

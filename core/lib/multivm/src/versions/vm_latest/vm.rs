@@ -51,7 +51,9 @@ impl TryFrom<VmVersion> for MultiVMSubversion {
     fn try_from(value: VmVersion) -> Result<Self, Self::Error> {
         match value {
             VmVersion::Vm1_5_0SmallBootloaderMemory => Ok(Self::SmallBootloaderMemory),
-            VmVersion::Vm1_5_0IncreasedBootloaderMemory => Ok(Self::IncreasedBootloaderMemory),
+            VmVersion::Vm1_5_0IncreasedBootloaderMemory | VmVersion::Bitcoin => {
+                Ok(Self::IncreasedBootloaderMemory)
+            }
             _ => Err(VmVersionIsNotVm150Error),
         }
     }
