@@ -289,6 +289,7 @@ mod tests {
             Err("Timestamp is too far in the future")
         );
 
+        // 5 years in seconds, used as a clearly too-far-in-the-future offset.
         let far_future_diff = -157_680_000;
         assert_eq!(
             check_timestamp_skew(far_future_diff, max_age, max_skew),
